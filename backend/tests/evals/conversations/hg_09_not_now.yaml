@@ -1,0 +1,9 @@
+id: hg_09_not_now
+style: hinglish
+reply_language: hi
+description: Qualified, phir 'abhi nahi, baad mein'.
+turns:
+- Behala mein 2 bhk chahiye, 70 lakh tak, ready to move
+- abhi nahi, baad mein baat karte hain
+expect:
+  qualified: true

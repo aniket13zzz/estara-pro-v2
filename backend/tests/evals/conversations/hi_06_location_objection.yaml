@@ -1,0 +1,9 @@
+id: hi_06_location_objection
+style: hi
+reply_language: hi
+description: Behala में options, फिर location objection।
+turns:
+- मुझे Behala में दो BHK चाहिए, साठ से सत्तर लाख के बीच।
+- Behala मेरे office से बहुत दूर है।
+expect:
+  qualified: true

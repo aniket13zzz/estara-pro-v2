@@ -1,0 +1,8 @@
+project_code,name,category,valid_from,valid_to
+SG,Swimming pool,Leisure,,
+SG,Gym,Fitness,,
+SG,Clubhouse,Leisure,,
+SL,Jogging track,Fitness,,
+SL,Kids play area,Family,,
+SH,Power backup,Utilities,,
+SH,Lift,Utilities,,

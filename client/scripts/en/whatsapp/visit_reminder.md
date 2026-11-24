@@ -1,0 +1,1 @@
+Hi {{customer_name}}, a reminder of your site visit to {{project_name}} tomorrow, {{visit_date}} at {{visit_time}}. {{salesperson_name}} from our team will meet you. Reply here if you need to change the time. Reply STOP to stop messages.

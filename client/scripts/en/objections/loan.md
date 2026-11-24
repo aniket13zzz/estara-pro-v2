@@ -1,0 +1,1 @@
+Of course, most of our buyers take a home loan. Our sales team can guide you through the paperwork at the site visit. The bank decides the loan amount and the rate, so I can't promise those, but the team will help you get started. Shall I request a visit?

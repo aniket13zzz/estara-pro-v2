@@ -1,0 +1,10 @@
+id: hg_02_offer_not_in_data
+style: hinglish
+reply_language: hi
+description: Sunrise Lakeview offer, jiska approved data nahi hai.
+turns:
+- Rajarhat mein 3 bhk dekh raha hoon, budget dedh crore tak
+- Sunrise Lakeview pe koi offer chal raha hai kya abhi?
+expect:
+  qualified: true
+  unavailable: true

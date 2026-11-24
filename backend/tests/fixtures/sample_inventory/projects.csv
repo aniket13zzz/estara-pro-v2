@@ -1,0 +1,4 @@
+project_code,name,city,locality,address,description,rera_number,possession_date,valid_from,valid_to
+SG,Sunrise Greens (Sample),Kolkata,New Town Action Area II,"Sample Street 1, New Town, Kolkata","SAMPLE DATA for testing. Not a real development. 18-storey towers near a lake park.",SAMPLE-RERA-0001,2027-12-31,,
+SL,Sunrise Lakeview (Sample),Kolkata,Rajarhat,"Sample Street 2, Rajarhat, Kolkata","SAMPLE DATA for testing. Not a real development. Lake-facing premium homes.",SAMPLE-RERA-0002,2028-06-30,,
+SH,Sunrise Heights (Sample),Kolkata,Behala,"Sample Street 3, Behala, Kolkata","SAMPLE DATA for testing. Not a real development. Ready-to-move homes.",SAMPLE-RERA-0003,2026-03-31,,

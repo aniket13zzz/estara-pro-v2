@@ -1,0 +1,1 @@
+It's smart to compare options. I can't comment on other developers, but I can tell you exactly what we offer and set up a visit so you can compare in person. What matters most to you in the comparison?

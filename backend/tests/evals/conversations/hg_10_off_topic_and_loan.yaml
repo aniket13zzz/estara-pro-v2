@@ -1,0 +1,8 @@
+id: hg_10_off_topic_and_loan
+style: hinglish
+reply_language: hi
+description: Off-topic sawaal, phir home loan.
+turns:
+- aaj cricket match kaun jeeta?
+- accha chhodo, newtown mein 2 bhk ke liye home loan mil jayega kya?
+expect: {}

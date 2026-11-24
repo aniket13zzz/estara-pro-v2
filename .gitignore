@@ -1,0 +1,42 @@
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / dashboard / widget
+node_modules/
+dashboard/.next/
+dashboard/out/
+dashboard/next-env.d.ts
+dashboard/test-results/
+dashboard/playwright-report/
+widget/dist/
+*.tsbuildinfo
+
+# Runtime data
+backups/
+uploads/
+*.log
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Conversation eval outputs (copy summaries into docs/progress.md)
+backend/tests/evals/results/
+
+# Redis local dump
+dump.rdb
+backups/

@@ -1,0 +1,73 @@
+[project]
+name = "estara-backend"
+version = "1.0.0"
+description = "ESTARA Pro backend: single-tenant AI sales employee for Indian real-estate developers"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8,<3",
+    "pydantic-settings>=2.4,<3",
+    "email-validator>=2.2",
+    "sqlalchemy[asyncio]>=2.0.32,<2.1",
+    "psycopg[binary]>=3.2,<4",
+    "alembic>=1.13,<2",
+    "pgvector>=0.3,<1",
+    "argon2-cffi>=23.1",
+    "pyyaml>=6.0",
+    "redis>=5.0,<6",
+    "arq>=0.26,<1",
+    "httpx>=0.27",
+    "python-multipart>=0.0.9",
+    "openpyxl>=3.1,<4",
+    "defusedxml>=0.7",
+    "pypdf>=5,<7",
+    "python-docx>=1.1,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML",
+    "types-openpyxl",
+]
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+strict = true
+packages = ["app"]
+
+[[tool.mypy.overrides]]
+module = ["arq.*", "pgvector.*", "docx.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["db: needs a PostgreSQL database (TEST_DATABASE_URL)"]

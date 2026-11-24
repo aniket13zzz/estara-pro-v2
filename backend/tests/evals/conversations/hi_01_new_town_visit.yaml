@@ -1,0 +1,9 @@
+id: hi_01_new_town_visit
+style: hi
+reply_language: hi
+description: हिंदी में requirement, फिर visit request (नाम और slot)।
+turns:
+- नमस्ते, मुझे न्यू टाउन में दो BHK फ्लैट चाहिए, बजट अस्सी लाख तक है।
+- शनिवार सुबह ठीक रहेगा, मेरा नाम राहुल वर्मा है।
+expect:
+  qualified: true

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunrise Developers, Kolkata homes</title>
+  <meta name="description" content="Talk to Priya, our AI home advisor, about sample projects across Kolkata. Demo website with sample data.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1B2C'/%3E%3Cpath d='M7 25V14l5-3v14m2 0V8l5-3v20m2 0V12l5 3v10' stroke='%23F2B04A' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Figtree:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#homes">Skip to homes</a>
+
+  <header class="top">
+    <a class="brand" href="#" aria-label="Sunrise Developers, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25V14l5-3v14m2 0V8l5-3v20m2 0V12l5 3v10"/></svg>
+      Sunrise Developers
+    </a>
+    <nav aria-label="Main">
+      <a href="#homes">Homes</a>
+      <a href="#how">How a call works</a>
+      <button class="talk talk-small" type="button" data-talk>Talk to Priya</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="skyline" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <h1 id="hero-title">Tell Priya the home you want.</h1>
+        <p class="lede">She knows every one of our Kolkata projects, today's prices and the open site-visit
+          slots. Ask in English or Hindi, the way you'd ask a friend.</p>
+        <div class="hero-actions">
+          <button class="talk" type="button" data-talk>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Zm-6 9a6 6 0 0 0 12 0M12 18v3"/></svg>
+            Talk to Priya
+          </button>
+          <a class="quiet" href="#homes">See all homes</a>
+        </div>
+        <p class="hint">Each tower in the skyline is one of our projects. Point at one to see it.</p>
+      </div>
+      <div class="tip" id="tip" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="homes" id="homes" aria-labelledby="homes-title">
+      <div class="homes-head">
+        <h2 id="homes-title">Homes across Kolkata</h2>
+        <p>From a first 1 BHK in Howrah to a penthouse in Salt Lake. Narrow it down, or just ask Priya.</p>
+      </div>
+
+      <form class="filters" id="filters" aria-label="Filter homes">
+        <label class="budget">
+          <span>Budget up to <output id="budget-out">any</output></span>
+          <input id="budget" type="range" min="30" max="330" step="5" value="330" aria-describedby="budget-out">
+        </label>
+        <fieldset class="bhk">
+          <legend>Bedrooms</legend>
+          <label><input type="radio" name="bhk" value="0" checked><span>Any</span></label>
+          <label><input type="radio" name="bhk" value="1"><span>1 BHK</span></label>
+          <label><input type="radio" name="bhk" value="2"><span>2 BHK</span></label>
+          <label><input type="radio" name="bhk" value="3"><span>3 BHK</span></label>
+          <label><input type="radio" name="bhk" value="4"><span>4 BHK</span></label>
+        </fieldset>
+        <label class="area">
+          <span>Area</span>
+          <select id="area"><option value="">All of Kolkata</option></select>
+        </label>
+      </form>
+
+      <p class="count" id="count" aria-live="polite"></p>
+      <ol class="list" id="list"></ol>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How a call with Priya works</h2>
+      <ol class="steps">
+        <li><h3>You tell her what you need</h3><p>Area, budget, size, when you want to move. She asks one question at a time.</p></li>
+        <li><h3>She suggests homes and a visit</h3><p>Only real projects and approved prices. If nothing fits exactly, she says so and shows the closest options.</p></li>
+        <li><h3>Our team confirms</h3><p>Priya requests the site visit. A member of our sales team confirms it and sends the details on WhatsApp.</p></li>
+      </ol>
+      <button class="talk" type="button" data-talk>Talk to Priya</button>
+    </section>
+  </main>
+
+  <aside class="call" id="call" aria-label="Call with Priya" hidden>
+    <div class="call-head">
+      <canvas id="orb" width="96" height="96" aria-hidden="true"></canvas>
+      <div>
+        <p class="call-name">Priya</p>
+        <p class="call-status" id="call-status" role="status">Connecting</p>
+      </div>
+      <button class="end" id="end" type="button">End call</button>
+    </div>
+    <ol class="transcript" id="transcript" aria-live="polite" aria-label="What was said"></ol>
+    <p class="call-note">This call is with an AI assistant and is recorded.</p>
+  </aside>
+
+  <footer class="foot">
+    <p>Sunrise Developers is a sample company. Every project, price and offer on this page is demo data,
+      not a real development. Calls are answered by Priya, an AI assistant built with ESTARA, and are recorded.</p>
+  </footer>
+</body>
+</html>

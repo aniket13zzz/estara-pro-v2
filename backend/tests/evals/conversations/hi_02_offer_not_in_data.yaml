@@ -1,0 +1,10 @@
+id: hi_02_offer_not_in_data
+style: hi
+reply_language: hi
+description: Sunrise Heights पर offer पूछना, जिसका approved data नहीं है।
+turns:
+- मुझे Behala में दो BHK चाहिए, बजट सत्तर लाख तक।
+- Sunrise Heights पर अभी कोई offer या discount चल रहा है क्या?
+expect:
+  qualified: true
+  unavailable: true

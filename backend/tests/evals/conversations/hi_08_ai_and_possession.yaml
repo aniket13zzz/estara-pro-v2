@@ -1,0 +1,8 @@
+id: hi_08_ai_and_possession
+style: hi
+reply_language: hi
+description: AI होने का सवाल, फिर possession की तारीख।
+turns:
+- क्या आप इंसान हैं या कोई बॉट?
+- Sunrise Lakeview का possession कब तक मिलेगा?
+expect: {}

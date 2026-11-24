@@ -1,0 +1,7 @@
+{"message": {"type": "end-of-call-report", "endedReason": "customer-ended-call",
+             "call": {"id": "call-sample-001", "startedAt": "2026-10-12T06:00:00Z",
+                      "endedAt": "2026-10-12T06:03:20Z", "cost": 0.21,
+                      "customer": {"number": "+919000000010"}},
+             "artifact": {"transcript": "AI: Hello, thank you for calling.\nUser: I'm looking for a 2 BHK in New Town under 80 lakh.\nAI: Sunrise Greens has a 2 BHK in your budget. Would Saturday at 11 suit you?\nUser: Yes, I'm Asha.",
+                          "recording": {"mono": {"combinedUrl": "https://storage.example.com/rec/call-sample-001.wav"}},
+                          "messages": [{"role": "user", "message": "I'm looking for a 2 BHK"}]}}}

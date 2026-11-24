@@ -1,0 +1,7 @@
+project_code,title,description,discount_inr,discount_percent,valid_from,valid_to
+SG,Puja Offer,Sample offer: flat discount on bookings during the festive season.,200000,,2026-09-15,2026-12-31
+SN,Ready-Home Offer,Sample offer: no floor-rise charge on ready homes.,100000,,2026-10-01,2027-01-31
+SM,Metro Launch Offer,Sample offer: modular kitchen included in 2 and 3 BHK homes.,150000,,2026-10-15,2027-03-31
+SS,Early Bird Offer,Sample offer: discount for bookings in the launch phase.,,2,2026-11-01,2027-02-28
+SA,Arcadia Launch Offer,Sample offer: no floor-rise charge in the launch phase.,120000,,2026-11-01,2027-03-31
+SJ,Ready Home Offer,Sample offer: registration charges support on ready homes.,150000,,2026-10-01,2027-02-28

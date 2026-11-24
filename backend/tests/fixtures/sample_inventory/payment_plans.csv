@@ -1,0 +1,5 @@
+project_code,name,description,milestones,valid_from,valid_to
+SG,Construction Linked Plan,Pay as construction progresses.,Booking:10; Agreement:10; Foundation:15; Structure:35; Possession:30,,
+SG,Down Payment Plan,Most of the amount at agreement.,Booking:10; Agreement:85; Possession:5,,
+SL,Construction Linked Plan,Pay as construction progresses.,Booking:10; Agreement:15; Structure:45; Possession:30,,
+SH,Ready to Move Plan,For completed homes.,Booking:10; Registration:90,,

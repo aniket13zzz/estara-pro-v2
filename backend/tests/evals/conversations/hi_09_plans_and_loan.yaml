@@ -1,0 +1,9 @@
+id: hi_09_plans_and_loan
+style: hi
+reply_language: hi
+description: payment plan, amenities और loan के सवाल।
+turns:
+- Sunrise Lakeview में कौन से payment plan हैं?
+- वहाँ क्या-क्या सुविधाएँ हैं?
+- मुझे होम लोन भी चाहिए होगा।
+expect: {}

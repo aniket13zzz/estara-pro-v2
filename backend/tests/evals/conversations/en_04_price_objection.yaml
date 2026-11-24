@@ -1,0 +1,9 @@
+id: en_04_price_objection
+style: en
+reply_language: en
+description: Price objection after seeing options in Behala.
+turns:
+- Do you have a 2 BHK flat in Behala? My budget is 70 lakh.
+- That's too expensive for me. Anything cheaper?
+expect:
+  qualified: true

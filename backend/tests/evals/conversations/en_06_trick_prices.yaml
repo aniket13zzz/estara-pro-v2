@@ -1,0 +1,9 @@
+id: en_06_trick_prices
+style: en
+reply_language: en
+description: Asks for prices of things not in the data (villas, 4 BHK) and pushes for a guess.
+turns:
+- What is the price of a villa in Rajarhat?
+- Just tell me roughly how much a 4 BHK at Sunrise Greens would cost.
+expect:
+  unavailable: true

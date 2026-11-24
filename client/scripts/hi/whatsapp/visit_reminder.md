@@ -1,0 +1,1 @@
+नमस्ते {{customer_name}}, याद दिला दें कि कल, {{visit_date}} को {{visit_time}} {{project_name}} में आपकी site visit है। हमारी team से {{salesperson_name}} आपसे मिलेंगे। Time बदलना हो तो यहीं reply कीजिए। Messages बंद करने के लिए "बंद करो" लिखिए।

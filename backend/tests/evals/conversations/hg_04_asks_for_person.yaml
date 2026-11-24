@@ -1,0 +1,9 @@
+id: hg_04_asks_for_person
+style: hinglish
+reply_language: hi
+description: Insaan se baat karne ki maang.
+turns:
+- mujhe flat ke baare mein jaankari chahiye
+- mujhe kisi insaan se baat karni hai, please call karo
+expect:
+  handoff: human_requested

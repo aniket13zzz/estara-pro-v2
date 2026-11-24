@@ -1,0 +1,10 @@
+id: en_07_competitor_think
+style: en
+reply_language: en
+description: Competitor mention and 'let me think' after qualifying.
+turns:
+- I want a 3 BHK in New Town, budget 1.2 to 1.5 crore.
+- Another builder offered me a better deal nearby.
+- Let me think about it and discuss with my family.
+expect:
+  qualified: true

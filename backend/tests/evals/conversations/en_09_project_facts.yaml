@@ -1,0 +1,9 @@
+id: en_09_project_facts
+style: en
+reply_language: en
+description: Amenities, payment plans and possession for one project, all in the data.
+turns:
+- What amenities does Sunrise Greens have?
+- What payment plans do you offer there?
+- And when is possession?
+expect: {}

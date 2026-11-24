@@ -1,0 +1,58 @@
+# Production on the client's own server: HTTPS (Caddy) and daily backups, on top of
+# docker-compose.yml. See docs/deploy.md.
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --wait
+# .env must set DOMAIN (e.g. ai.clientname.in), pointing at this server.
+
+x-production: &production
+  ENVIRONMENT: production
+  COOKIE_SECURE: "true"
+  DASHBOARD_ORIGIN: https://${DOMAIN:?set DOMAIN in .env}
+  PUBLIC_BASE_URL: https://${DOMAIN}
+
+services:
+  backend:
+    environment:
+      <<: *production
+      # Requests arrive through Caddy; trust its X-Forwarded-For so the login rate limit sees
+      # the real visitor. Safe because the backend port is only open on 127.0.0.1.
+      FORWARDED_ALLOW_IPS: "*"
+
+  worker:
+    environment:
+      <<: *production
+
+  caddy:
+    image: caddy:2.10.0-alpine
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      backend: { condition: service_healthy }
+      dashboard: { condition: service_started }
+    restart: unless-stopped
+
+  backup:
+    image: pgvector/pgvector:pg16
+    entrypoint: ["sh", "/scripts/backup.sh"]
+    environment:
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: ${POSTGRES_DB}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_TIME_UTC: ${BACKUP_TIME_UTC:-21:00}
+    volumes:
+      - ./docker/backup:/scripts:ro
+      - ./backups:/backups
+      - uploads:/uploads
+    depends_on:
+      db: { condition: service_healthy }
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,1 @@
+Hi {{customer_name}}, this is {{agent_name}} from {{company_name}}. You were looking for a home with us recently. Would you like me to set up a site visit, or answer any questions? Reply STOP to stop these messages.

@@ -1,0 +1,26 @@
+# ESTARA backend image for free cloud hosting (Render). Built from the repository root so the
+# client config and the synthetic demo homes are inside the image (no volumes on free hosts).
+# Local and client deployments keep using backend/Dockerfile with docker-compose.yml.
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    ESTARA_CONFIG_PATH=/srv/client/client.config.yaml \
+    SAMPLE_INVENTORY_DIR=/srv/sample_inventory \
+    UPLOAD_DIR=/tmp/estara-uploads
+
+WORKDIR /srv/backend
+COPY backend/pyproject.toml ./
+COPY backend/app ./app
+RUN pip install --upgrade pip && pip install .
+COPY backend/alembic.ini ./
+COPY backend/alembic ./alembic
+COPY client /srv/client
+COPY backend/sample_data/kolkata /srv/sample_inventory
+COPY deploy/cloud-start.sh /srv/cloud-start.sh
+
+RUN useradd --create-home --uid 10001 estara && chmod 755 /srv/cloud-start.sh
+USER estara
+EXPOSE 8000
+CMD ["/srv/cloud-start.sh"]

@@ -1,0 +1,1 @@
+Hi {{customer_name}}, thank you for calling {{company_name}}. We have noted your site visit request for {{project_name}} on {{visit_date}} at {{visit_time}}. Our team will call you to confirm it. Reply STOP to stop messages.

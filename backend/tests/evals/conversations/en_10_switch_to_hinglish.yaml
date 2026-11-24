@@ -1,0 +1,10 @@
+id: en_10_switch_to_hinglish
+style: en
+reply_language: en
+description: Starts in English, switches to Hinglish mid-conversation.
+turns:
+- I'm interested in a 2 BHK in Rajarhat, around 95 lakh.
+- text: acha, kya weekend pe site visit ho sakta hai? mera naam Rohit hai
+  reply_language: hi
+expect:
+  qualified: true

@@ -1,0 +1,12 @@
+# Only for builds whose context is the repository root (deploy/Dockerfile.cloud).
+# Allow-list: nothing else, and never .env, is sent to the builder.
+*
+!backend/pyproject.toml
+!backend/app
+!backend/alembic.ini
+!backend/alembic
+!backend/sample_data/kolkata
+!client
+!deploy/cloud-start.sh
+**/__pycache__
+**/*.pyc

@@ -1,0 +1,109 @@
+# ESTARA Pro client configuration.
+# This file, client/scripts/ and .env are the ONLY things that change per client
+# (docs/new-client-setup.md).
+# Validated at startup by backend/app/core/config.py. Design: docs/roadmap/phase-plan.md.
+# All phone numbers below are clearly fake sample numbers (+9190000000NN range).
+
+template_version: "1.0.0"
+tier: pro
+
+company:
+  name: "Sunrise Developers"
+  timezone: "Asia/Kolkata"
+  currency: INR
+
+agent:
+  name: "Priya"
+  gender: female                    # female | male: Hindi verb forms; match the voice and scripts
+  tone: warm_professional
+  languages: [en, hi]
+  default_language: en             # greeting language; Sara switches when the caller does
+  greeting_mode: default_language  # default_language (short) | bilingual (both languages)
+  scripts_dir: scripts              # scripts/en/*.md, scripts/hi/*.md
+
+voice:
+  provider: vapi
+  # native: Vapi's own model talks and calls ESTARA's tools; choose the model, voice and
+  # transcriber in the Vapi dashboard (docs/demo.md). custom_llm: ESTARA writes every reply and
+  # the voice comes from tts/stt below. ADR 0014.
+  mode: native
+  # custom_llm mode only: copy the exact values from the Vapi dashboard. While any is null in
+  # that mode, every call goes straight to escalation.human_transfer_number.
+  tts: { provider: cartesia, model: null, voice_id: null }
+  stt: { provider: null, model: null, language: multi }
+  filler_lines: true
+  max_call_minutes: 15
+
+llm:
+  provider: gemini                   # gemini | claude | openai
+  # Stable Flash model with a free tier (ai.google.dev/gemini-api/docs/models). Chosen over
+  # gemini-3.8-flash after latency probes (ADR 0011); switching back is this one line.
+  model: "gemini-3.6-flash"          # key in .env
+  # Google's Gemini 3 prompting guide: keep temperature at the default 1.0; lower values "may
+  # lead to unexpected behavior, looping, or degraded performance" (checked 2026-11-02).
+  temperature: 1.0
+  # Gemini only: low | medium | high, or null for the model's default (medium for
+  # gemini-3.6-flash). Low cuts latency, which matters for live calls and chat.
+  thinking_level: low
+  # Optional, for cost tracking (USD per million tokens). Provider APIs return tokens, not cost.
+  # Values below: Gemini paid-tier list price for gemini-3.6-flash (the same as 3.8 Flash)
+  # through 2026-12-31; from 2027-01-01 it is 1.50 / 7.50 (ai.google.dev/gemini-api/docs/pricing,
+  # checked 2026-10-13). Update when prices change.
+  pricing: { input_usd_per_mtok: 0.75, output_usd_per_mtok: 3.75 }
+
+embeddings:
+  provider: gemini                   # gemini | openai | local
+  model: "gemini-embedding-001"
+  dimensions: 768                    # fixed for the template: the pgvector column is 768
+
+# Voice and WhatsApp are on when their keys are in .env.
+channels:
+  whatsapp:
+    # A customer who sends only one of these words gets no more WhatsApp messages.
+    opt_out_keywords:
+      en: ["STOP", "UNSUBSCRIBE"]
+      hi: ["बंद करो", "बंद", "रोको"]
+
+sales_team:
+  - { name: "Rahul", phone: "+919000000001", email: "rahul@example.com", role: sales_staff, languages: [en, hi] }
+
+escalation:
+  human_transfer_number: "+919000000002"
+  working_hours: { days: [mon, tue, wed, thu, fri, sat], start: "10:00", end: "19:00" }
+  after_hours: take_details_and_callback
+
+site_visits:
+  days: [sat, sun]
+  slots: ["11:00", "14:00", "16:00"]
+  min_lead_hours: 24
+  max_days_ahead: 14
+  slot_capacity: 3                   # max visits per project per slot
+  confirmed_by: [client_admin, sales_staff]
+
+lead_scoring:
+  weights: { budget_match: 30, location_match: 20, timeline_under_6m: 20, loan_ready: 10, visit_requested: 20 }
+  thresholds: { hot: 70, warm: 40 }
+  qualified_requires: [budget, location, bhk]
+
+follow_up:
+  schedule_days: [1, 3, 7]
+  channels: [whatsapp]               # "voice" is rejected while outbound_calls_enabled is false
+
+compliance:
+  ai_disclosure: { en: scripts/en/ai_disclosure.md, hi: scripts/hi/ai_disclosure.md }
+  recording_disclosure: { en: scripts/en/recording_disclosure.md, hi: scripts/hi/recording_disclosure.md }
+  outbound_calls_enabled: false      # requires DND/TRAI review before enabling
+
+truth:
+  stale_after_days: 30
+  block_on_stale: [price, availability, offer, payment_plan, possession, area, amenity]
+
+retention:
+  transcript_days: 365
+  recording_days: 180
+
+usage_limits:
+  monthly_call_minutes: 3000
+  monthly_llm_usd: 100
+  alert_at_percent: [50, 80, 100]     # warnings on the dashboard Home page
+  # When a limit is reached, calls go to escalation.human_transfer_number until next month.

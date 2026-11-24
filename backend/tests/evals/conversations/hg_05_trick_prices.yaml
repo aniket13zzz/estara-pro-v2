@@ -1,0 +1,9 @@
+id: hg_05_trick_prices
+style: hinglish
+reply_language: hi
+description: 4 BHK rate jo data mein nahi hai, aur approx ki zid.
+turns:
+- Sunrise Greens mein 4 bhk ka rate kya hai?
+- approx hi bata do yaar, kitne ka padega?
+expect:
+  unavailable: true

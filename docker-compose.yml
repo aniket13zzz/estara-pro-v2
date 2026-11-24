@@ -1,0 +1,98 @@
+# ESTARA Pro local stack: Postgres 16 + pgvector, Redis, backend (uvicorn), worker (ARQ), dashboard.
+# Usage: cp .env.example .env (fill it in) && docker compose up -d --wait
+# (the backend migrates the database and loads the synthetic demo homes by itself, see app/seed.py)
+
+x-backend: &backend
+  build: ./backend
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    REDIS_URL: redis://redis:6379/0
+    ESTARA_CONFIG_PATH: /srv/client/client.config.yaml
+    UPLOAD_DIR: /srv/data/uploads
+    SAMPLE_INVENTORY_DIR: /srv/sample_inventory
+  volumes:
+    - ./client:/srv/client:ro
+    - uploads:/srv/data/uploads
+    # Synthetic demo homes, loaded by `python -m app.seed` (and --auto on start).
+    - ./backend/sample_data/kolkata:/srv/sample_inventory:ro
+  depends_on:
+    db: { condition: service_healthy }
+    redis: { condition: service_healthy }
+  restart: unless-stopped
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init-test-db.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports: ["127.0.0.1:6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    <<: *backend
+    # On every start: bring the database up to date, then keep the synthetic demo homes loaded
+    # and fresh (app/seed.py --auto: never in production, never over real inventory), then serve.
+    command: ["sh", "-c", "alembic upgrade head && python -m app.seed --auto; exec uvicorn app.asgi:app --host 0.0.0.0 --port 8000 --proxy-headers"]
+    ports: ["127.0.0.1:8000:8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health/live')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+
+  worker:
+    <<: *backend
+    command: ["arq", "app.jobs.worker.WorkerSettings"]
+
+  dashboard:
+    build:
+      context: ./dashboard
+      args:
+        BACKEND_URL: http://backend:8000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      backend: { condition: service_healthy }
+    restart: unless-stopped
+
+  # Backend lint, typecheck and tests inside Linux (works the same on Windows/macOS/Linux).
+  # Not started by `up`: run with `docker compose --profile tools run --rm checks`.
+  checks:
+    profiles: ["tools"]
+    build:
+      context: ./backend
+      target: dev
+    env_file: .env
+    environment:
+      TEST_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/estara_test
+      ESTARA_CONFIG_PATH: /srv/client/client.config.yaml
+    volumes:
+      - ./backend:/srv/backend
+      - ./client:/srv/client:ro
+    depends_on:
+      db: { condition: service_healthy }
+
+volumes:
+  pgdata:
+  uploads:

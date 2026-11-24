@@ -1,0 +1,9 @@
+id: hi_04_asks_for_person
+style: hi
+reply_language: hi
+description: सीधे इंसान से बात करने की माँग।
+turns:
+- मुझे फ्लैट के बारे में जानकारी चाहिए।
+- मुझे किसी इंसान से बात करनी है, कृपया sales team से connect कीजिए।
+expect:
+  handoff: human_requested

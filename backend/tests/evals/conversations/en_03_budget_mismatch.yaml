@@ -1,0 +1,10 @@
+id: en_03_budget_mismatch
+style: en
+reply_language: en
+description: Budget too low for a 2 BHK; customer accepts a 1 BHK.
+turns:
+- Looking for a 2 BHK in New Town under 40 lakh.
+- Hmm. What if I go up to 50 lakh?
+- OK, a 1 BHK is fine too.
+expect:
+  qualified: true

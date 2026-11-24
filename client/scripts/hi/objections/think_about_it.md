@@ -1,0 +1,1 @@
+हाँ ज़रूर, आराम से सोचिए, ये important decision है। Family से बात करनी हो तो उन्हें भी साथ ले आइए। Project एक बार खुद देख लेंगे तो decide करना काफ़ी easy हो जाता है। इस weekend के लिए site visit request कर दूँ? कोई commitment नहीं है।

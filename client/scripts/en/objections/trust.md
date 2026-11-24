@@ -1,0 +1,1 @@
+That's an important question to ask. Our team can show you the project's RERA registration and approvals, and at the site you can see the construction and the materials yourself. That's the best way to judge the quality. Would you like to visit and see it in person?

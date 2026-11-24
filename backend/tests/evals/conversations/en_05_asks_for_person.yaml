@@ -1,0 +1,9 @@
+id: en_05_asks_for_person
+style: en
+reply_language: en
+description: Asks for a person straight away.
+turns:
+- Hello, I'd like to buy a flat in Kolkata.
+- Actually, I want to talk to a real person from your sales team.
+expect:
+  handoff: human_requested

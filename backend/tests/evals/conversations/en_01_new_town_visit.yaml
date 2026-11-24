@@ -1,0 +1,10 @@
+id: en_01_new_town_visit
+style: en
+reply_language: en
+description: Qualifies in two turns, then books a visit with a name and slot.
+turns:
+- Hi, I'm looking for a 2 BHK apartment in New Town.
+- My budget is around 80 lakh.
+- Saturday morning works for me. My name is Asha Sen.
+expect:
+  qualified: true

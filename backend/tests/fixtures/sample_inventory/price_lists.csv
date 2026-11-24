@@ -1,0 +1,8 @@
+project_code,unit_type_code,unit_number,base_price_inr,price_max_inr,price_per_sqft_inr,notes,valid_from,valid_to
+SG,1BHK,,4200000,4600000,8100,Sample price list,,
+SG,2BHK-A,,7200000,7800000,8800,Sample price list,,
+SG,3BHK,,12000000,15000000,9600,Sample price list,,
+SL,2BHK,,8500000,9200000,9400,Sample price list,,
+SL,3BHK-P,,13500000,15500000,9650,Sample price list,,
+SH,2BHK-C,,6800000,7400000,8900,Sample price list,,
+SH,3BHK-C,,9900000,10500000,9000,Sample price list,,

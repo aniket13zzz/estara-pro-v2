@@ -1,0 +1,9 @@
+id: hi_03_price_objection
+style: hi
+reply_language: hi
+description: तीन BHK, एक करोड़ बजट, फिर price objection।
+turns:
+- मुझे तीन BHK फ्लैट चाहिए, बजट एक करोड़ तक है, Behala या Rajarhat में।
+- ये तो बहुत महंगा है, कुछ सस्ता है क्या?
+expect:
+  qualified: true

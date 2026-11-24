@@ -1,0 +1,9 @@
+id: hg_07_angry_then_manager
+style: hinglish
+reply_language: hi
+description: Gussa, phir manager se baat.
+turns:
+- kitni der se wait kar raha hoon, bakwas service hai
+- mujhe manager se baat karni hai abhi
+expect:
+  handoff: human_requested

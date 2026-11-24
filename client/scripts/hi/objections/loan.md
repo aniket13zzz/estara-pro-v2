@@ -1,0 +1,1 @@
+बिल्कुल, हमारे ज़्यादातर buyers home loan लेते हैं। Site visit पर हमारी sales team आपको paperwork में पूरी help करेगी। Loan amount और rate bank decide करता है, इसलिए वो मैं promise नहीं कर सकती, पर team आपको शुरू करने में help करेगी। Visit request कर दूँ?

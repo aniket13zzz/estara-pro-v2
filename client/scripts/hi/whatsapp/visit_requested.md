@@ -1,0 +1,1 @@
+नमस्ते {{customer_name}}, {{company_name}} से बात करने के लिए thank you. {{project_name}} के लिए {{visit_date}} को {{visit_time}} आपकी site visit request हमने note कर ली है। हमारी team आपको call करके confirm करेगी। Messages बंद करने के लिए "बंद करो" लिखिए।

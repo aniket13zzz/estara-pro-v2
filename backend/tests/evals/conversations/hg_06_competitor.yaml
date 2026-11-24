@@ -1,0 +1,9 @@
+id: hg_06_competitor
+style: hinglish
+reply_language: hi
+description: Competitor ne sasta diya.
+turns:
+- newtown mein 2 bhk chahiye, budget 75 lakh
+- dusre builder ne isse sasta offer diya hai
+expect:
+  qualified: true

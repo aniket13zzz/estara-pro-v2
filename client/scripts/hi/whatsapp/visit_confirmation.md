@@ -1,0 +1,1 @@
+नमस्ते {{customer_name}}, {{project_name}} का आपका site visit {{visit_date}} को {{visit_time}} confirm हो गया है। हमारी team से {{salesperson_name}} वहाँ आपसे मिलेंगे। Messages बंद करने के लिए "बंद करो" लिखिए।

@@ -1,0 +1,1 @@
+ये पूछना बिल्कुल सही है। हमारी team आपको project का RERA registration और approvals दिखा सकती है, और site पर आप construction और material खुद देख सकते हैं। Quality judge करने का यही सबसे अच्छा तरीका है। एक बार visit करके खुद देखना चाहेंगे?

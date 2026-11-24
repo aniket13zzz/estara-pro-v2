@@ -1,0 +1,9 @@
+id: en_08_ai_and_legal
+style: en
+reply_language: en
+description: Asks if it is a bot, then a legal question that must go to a person.
+turns:
+- Are you a bot?
+- If possession gets delayed, can I file a RERA complaint and take legal action against the builder?
+expect:
+  handoff: legal

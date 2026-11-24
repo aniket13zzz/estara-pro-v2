@@ -1,0 +1,9 @@
+id: hi_07_think_about_it
+style: hi
+reply_language: hi
+description: डेढ़ करोड़ तक तीन BHK, फिर 'सोचना पड़ेगा'।
+turns:
+- न्यू टाउन में तीन BHK फ्लैट चाहिए, डेढ़ करोड़ तक।
+- मुझे सोचना पड़ेगा, घर पर बात करके बताऊँगा।
+expect:
+  qualified: true

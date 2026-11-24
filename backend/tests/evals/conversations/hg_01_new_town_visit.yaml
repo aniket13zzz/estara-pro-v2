@@ -1,0 +1,9 @@
+id: hg_01_new_town_visit
+style: hinglish
+reply_language: hi
+description: Hinglish requirement, phir visit request.
+turns:
+- mujhe newtown mein 2 bhk chahiye, budget assi lakh tak hai
+- saturday subah chalega, mera naam Asha hai
+expect:
+  qualified: true

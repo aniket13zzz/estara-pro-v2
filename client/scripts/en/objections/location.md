@@ -1,0 +1,1 @@
+That's fair, location is a big decision. Which areas work best for you, for office, school or family? I can check what we have nearby, and a site visit is the best way to see the connectivity for yourself.

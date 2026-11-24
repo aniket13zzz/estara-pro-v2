@@ -1,0 +1,1 @@
+बिल्कुल, location बड़ा decision है। आपके लिए कौन से areas सही रहेंगे, office, school या family के हिसाब से? मैं पास के options check कर सकती हूँ, और connectivity खुद देखने के लिए site visit सबसे अच्छा रहेगा।

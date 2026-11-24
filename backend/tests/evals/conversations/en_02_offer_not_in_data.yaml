@@ -1,0 +1,10 @@
+id: en_02_offer_not_in_data
+style: en
+reply_language: en
+description: Qualified buyer asks about an offer that has no approved data (Sunrise Lakeview has no offer).
+turns:
+- I need a 3 BHK in Rajarhat, budget up to 1.6 crore.
+- Is there any festive offer or discount on Sunrise Lakeview right now?
+expect:
+  qualified: true
+  unavailable: true

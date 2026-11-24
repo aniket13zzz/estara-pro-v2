@@ -1,0 +1,3 @@
+{"message": {"type": "assistant-request",
+             "call": {"id": "call-sample-001", "type": "inboundPhoneCall",
+                      "customer": {"number": "+919000000010"}}}}

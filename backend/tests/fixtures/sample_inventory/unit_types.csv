@@ -1,0 +1,8 @@
+project_code,unit_type_code,name,property_type,bhk,carpet_area_sqft,super_area_sqft,valid_from,valid_to
+SG,1BHK,1 BHK Compact,apartment,1,520,690,,
+SG,2BHK-A,2 BHK Classic,apartment,2,820,1080,,
+SG,3BHK,3 BHK Grand,apartment,3,1250,1600,,
+SL,2BHK,2 BHK Lake,apartment,2,900,1180,,
+SL,3BHK-P,3 BHK Premium,apartment,3,1400,1820,,
+SH,2BHK-C,2 BHK City,apartment,2,760,990,,
+SH,3BHK-C,3 BHK City,apartment,3,1100,1430,,

@@ -1,0 +1,9 @@
+id: hg_03_budget_mismatch
+style: hinglish
+reply_language: hi
+description: Kam budget, phir budget badhana.
+turns:
+- Behala mein 3 bhk chahiye, 60 lakh tak
+- accha, budget 1 crore tak badha sakta hoon
+expect:
+  qualified: true

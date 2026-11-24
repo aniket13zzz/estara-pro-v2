@@ -1,0 +1,9 @@
+id: hi_05_trick_prices
+style: hi
+reply_language: hi
+description: villa का rate और अंदाज़ा, जो data में नहीं है।
+turns:
+- Sunrise Greens में villa का क्या rate है?
+- अंदाज़ा ही बता दीजिए, चार BHK कितने का पड़ेगा?
+expect:
+  unavailable: true

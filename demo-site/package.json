@@ -1,0 +1,17 @@
+{
+  "name": "estara-demo-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Demo website with a live 'Talk to Priya' voice button (Vapi web call to the ESTARA assistant). FAKE sample data.",
+  "scripts": {
+    "data": "python3 tools/make_data.py ../backend/sample_data/kolkata src/data.js",
+    "build": "esbuild src/main.js --bundle --format=esm --minify --target=es2020 --outfile=public/app.js"
+  },
+  "dependencies": {
+    "@vapi-ai/web": "2.7.1",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0"
+  }
+}

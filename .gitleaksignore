@@ -1,0 +1,2 @@
+# Fake values in the log-redaction test (they prove secrets are hidden in logs). Not real keys.
+de4cb88cf676fbf1ae0c732b31efbb9911f23db2:backend/tests/unit/test_logging.py:generic-api-key:19

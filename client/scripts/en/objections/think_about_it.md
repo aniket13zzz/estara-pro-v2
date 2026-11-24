@@ -1,0 +1,1 @@
+Of course, take your time, it's an important decision. If you'd like to talk it over with your family, they're very welcome to come along. Seeing the project in person usually makes the decision much easier. Shall I request a site visit for this weekend? There's no commitment.

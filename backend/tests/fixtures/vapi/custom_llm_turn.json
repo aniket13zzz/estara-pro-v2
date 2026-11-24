@@ -1,0 +1,7 @@
+{"model": "estara-sales-brain", "stream": true, "temperature": 0.7,
+ "messages": [
+   {"role": "system", "content": "Replies come from the ESTARA backend."},
+   {"role": "assistant", "content": "Hello, thank you for calling Sunrise Developers."},
+   {"role": "user", "content": "Hi, I'm looking for a 2 BHK in New Town under 80 lakh."}
+ ],
+ "call": {"id": "call-sample-001", "customer": {"number": "+919000000010"}}}

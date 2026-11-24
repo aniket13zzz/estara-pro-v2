@@ -1,0 +1,54 @@
+# Render Blueprint: the free public demo backend (docs/deploy-free.md).
+# Render > New > Blueprint > pick this repository. Secrets marked "sync: false" are asked for
+# once in the Render dashboard; nothing secret is stored in this file.
+services:
+  - type: web
+    name: estara-demo-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./deploy/Dockerfile.cloud
+    dockerContext: .
+    healthCheckPath: /api/v1/health/live
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - backend/**
+        - client/**
+        - deploy/**
+        - render.yaml
+      ignoredPaths:
+        - backend/tests/**
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: REDIS_ENABLED
+        value: "false"
+      - key: RUN_JOBS_IN_WEB
+        value: "true"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: DASHBOARD_ORIGIN
+        sync: false
+      - key: SEED_ADMIN_EMAIL
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: SEED_STAFF_EMAIL
+        sync: false
+      - key: SEED_STAFF_PASSWORD
+        sync: false
+      - key: VAPI_API_KEY
+        sync: false
+      - key: VAPI_WEBHOOK_SECRET
+        sync: false
+      - key: VAPI_ASSISTANT_ID
+        sync: false
+      - key: VAPI_SERVER_CREDENTIAL_ID
+        sync: false

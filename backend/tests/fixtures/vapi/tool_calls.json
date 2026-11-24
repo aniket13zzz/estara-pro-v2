@@ -1,0 +1,27 @@
+{
+  "message": {
+    "type": "tool-calls",
+    "timestamp": 1794500000000,
+    "toolCallList": [
+      {
+        "id": "toolu_sample_001",
+        "type": "function",
+        "function": {"name": "get_customer_context", "arguments": {}}
+      }
+    ],
+    "toolWithToolCallList": [],
+    "artifact": {
+      "messages": [
+        {"role": "system", "message": "instructions"},
+        {"role": "bot", "message": "Hello, thank you for calling Sunrise Developers."},
+        {"role": "user", "message": "Hello, I am looking for a flat for my family"}
+      ]
+    },
+    "call": {
+      "id": "call-native-001",
+      "orgId": "org-sample",
+      "type": "inboundPhoneCall",
+      "customer": {"number": "+919000000010"}
+    }
+  }
+}

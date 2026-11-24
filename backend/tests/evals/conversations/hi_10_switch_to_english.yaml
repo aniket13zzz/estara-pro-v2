@@ -1,0 +1,10 @@
+id: hi_10_switch_to_english
+style: hi
+reply_language: hi
+description: हिंदी से शुरू, फिर English में switch।
+turns:
+- मुझे राजारहाट में दो BHK फ्लैट चाहिए।
+- text: Actually, can we continue in English? My budget is around 95 lakh.
+  reply_language: en
+expect:
+  qualified: true

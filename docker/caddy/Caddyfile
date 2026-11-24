@@ -1,0 +1,28 @@
+# HTTPS for ESTARA Pro. Caddy gets and renews the certificate for DOMAIN automatically
+# (the domain's DNS must point at this server and ports 80 and 443 must be open).
+{$DOMAIN} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), geolocation=(), microphone=(self)"
+		-Server
+	}
+
+	request_body {
+		max_size 30MB
+	}
+
+	# API and provider webhooks (Vapi, WhatsApp) go straight to the backend.
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+
+	# Everything else is the dashboard.
+	handle {
+		reverse_proxy dashboard:3000
+	}
+}
